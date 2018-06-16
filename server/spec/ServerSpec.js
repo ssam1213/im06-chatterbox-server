@@ -67,6 +67,8 @@ describe('Node Server Request Listener Function', function() {
     handler.requestHandler(req, res);
 
     // Expect 201 Created response status
+
+    
     expect(res._responseCode).to.equal(201);
 
     // Testing for a newline isn't a valid test
@@ -82,12 +84,13 @@ describe('Node Server Request Listener Function', function() {
     };
     var req = new stubs.request('/classes/messages', 'POST', stubMsg);
     var res = new stubs.response();
-
+    
+    
     handler.requestHandler(req, res);
 
     expect(res._responseCode).to.equal(201);
 
-      // Now if we request the log for that room the message we posted should be there:
+    // Now if we request the log for that room the message we posted should be there:
     req = new stubs.request('/classes/messages', 'GET');
     res = new stubs.response();
 
